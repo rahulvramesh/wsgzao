@@ -1,0 +1,16 @@
+备份：pax -wvf /dev/rmt0 <directory or filename>
+
+查看备份文件列表：pax -vf /dev/rmt0
+
+解备份：pax -rvf /dev/rmt0 <directory or filename> -----可以随意解哪个都行，空为全部
+
+复制：pax -rw <old directory> <new directory>
+
+向磁带后追加：pax -avf /dev/rmt0 <directory or filename>
+
+处理大文件（超过8GB）：pax -x pax -wvf   /dev/rmt0             <directory or filename>
+pax -x pax -wvf  目的地址/文件名.pax   要备份的目录
+
+不方便之处：分卷、不存在的目录不能恢复、存在的目录自动覆盖 
+
+nohup pax -x pax -wvf /dev/rmt0  <directory or filename> &
